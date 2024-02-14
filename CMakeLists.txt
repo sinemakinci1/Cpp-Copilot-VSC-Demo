@@ -6,10 +6,14 @@ project(my-cmake-project)
 
 # add_executable(my-cmake-project src/main.cpp)
 
-include(CTest)
+include(GoogleTest)
 enable_testing()
+add_subdirectory(googletest)
+include_directories(googletest/include)
+
 add_executable(tests src/test_main.cpp)
 
-add_test(NAME calculatortests COMMAND tests)
+target_link_libraries(tests PRIVATE gtest)
 
+gtest_discover_tests(tests)
 
