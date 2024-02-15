@@ -32,7 +32,10 @@ public:
             return divided_result;
         }
     }
+
 };
+
+
 
 int main() {
     Calculator calculator;
