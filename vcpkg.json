@@ -2,7 +2,6 @@
   "name": "cpp-copilot-vsc-demo",
   "version": "1.0.0",
   "dependencies": [
-        "gtest",
         "python3"
   ]
 }

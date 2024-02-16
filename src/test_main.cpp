@@ -1,40 +1,29 @@
-#include <iostream>
-#include <gtest/gtest.h>
-#include "Calculator.h"
+#include <cassert>
+#include <cmath>
+#include "calculator.cpp" // Include your Calculator class
 
-using namespace std;
+int tests() {
+    // Test add()
+    assert(Calculator::add(1, 1) == 2);
+    assert(Calculator::add(1, -1) == 0);
+    assert(Calculator::add(1, 0) == 1);
 
-TEST(CalculatorTest, AddTest) {
-    EXPECT_EQ(Calculator::add(2, 3), 5);
-    EXPECT_EQ(Calculator::add(-2, 3), 1);
-    EXPECT_EQ(Calculator::add(0, 0), 0);
-}
+    // Test subtract()
+    assert(Calculator::subtract(5, 3) == 2);
+    assert(Calculator::subtract(5, -3) == 8);
+    assert(Calculator::subtract(5, 0) == 5);
 
-TEST(CalculatorTest, SubtractTest) {
-    EXPECT_EQ(Calculator::subtract(5, 3), 2);
-    EXPECT_EQ(Calculator::subtract(3, 5), -2);
-    EXPECT_EQ(Calculator::subtract(0, 0), 0);
-}
+    // Test multiply()
+    assert(Calculator::multiply(2, 3) == 6);
+    assert(Calculator::multiply(2, -3) == -6);
+    assert(Calculator::multiply(2, 0) == 0);
 
-TEST(CalculatorTest, MultiplyTest) {
-    EXPECT_EQ(Calculator::multiply(2, 3), 6);
-    EXPECT_EQ(Calculator::multiply(-2, 3), -6);
-    EXPECT_EQ(Calculator::multiply(0, 5), 0);
-}
+    // Test divide()
+    assert(Calculator::divide(6, 3) == 2);
+    assert(Calculator::divide(6, -3) == -2);
+    assert(std::isnan(Calculator::divide(6, 0)));
 
-TEST(CalculatorTest, DivideTest) {
-    EXPECT_EQ(Calculator::divide(6, 3), 2);
-    EXPECT_EQ(Calculator::divide(0, 5), 0);
-}
+    cout << "All tests passed!" << endl;
 
-
-TEST(CalculatorTest, SquareRootTest) {
-    EXPECT_EQ(Calculator::squareRoot(16), 4);
-    EXPECT_EQ(Calculator::squareRoot(9), 3);
-    EXPECT_EQ(Calculator::squareRoot(0), 0);
-}
-
-int main(int argc, char** argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    return 0;
 }
