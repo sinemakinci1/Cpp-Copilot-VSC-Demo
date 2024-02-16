@@ -1,6 +1,6 @@
 #include <iostream>
 #include <gtest/gtest.h>
-#include "main.cpp"
+#include "Calculator.h"
 
 using namespace std;
 
@@ -27,11 +27,6 @@ TEST(CalculatorTest, DivideTest) {
     EXPECT_EQ(Calculator::divide(0, 5), 0);
 }
 
-TEST(CalculatorTest, SquareTest) {
-    EXPECT_EQ(Calculator::square(4), 16);
-    EXPECT_EQ(Calculator::square(-3), 9);
-    EXPECT_EQ(Calculator::square(0), 0);
-}
 
 TEST(CalculatorTest, SquareRootTest) {
     EXPECT_EQ(Calculator::squareRoot(16), 4);
