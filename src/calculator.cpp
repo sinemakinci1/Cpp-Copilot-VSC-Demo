@@ -1,6 +1,6 @@
 #include "Calculator.h"
 
-int main() {
+int calc() {
     Calculator calculator;
     double num1, num2;
     char operation;
