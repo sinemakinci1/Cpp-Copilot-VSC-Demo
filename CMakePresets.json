@@ -68,5 +68,12 @@
         "CMAKE_BUILD_TYPE": "Release"
       }
     }
+  ],
+  "testPresets": [
+    {
+      "name": "x64-debug-tests",
+      "configuration": "Debug",
+      "configurePreset": "x64-debug"
+    }
   ]
 }
