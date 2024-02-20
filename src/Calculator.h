@@ -35,14 +35,5 @@ public:
     }
 
 
-    double squareRoot(double num) {
-        if(num < 0) {
-            cerr << "Error! Square root of negative number is not allowed." << endl;
-            return std::numeric_limits<double>::quiet_NaN();
-        }
-        return sqrt(num);
-    }
-
-
 };
 
