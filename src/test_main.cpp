@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <cmath>
-#include "calculator.cpp" // Include your Calculator class
+#include "Calculator.h" // Include your Calculator class
 
 TEST(CalculatorTest, AddTest) {
     ASSERT_EQ(Calculator::add(1, 1), 2);
