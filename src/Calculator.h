@@ -1,8 +1,5 @@
-
 #include <iostream>
 #include <cmath> // Include the cmath library for NaN
-using namespace std;
-
 
 class Calculator {
 public:
@@ -28,7 +25,7 @@ public:
             return divided_result;
         }
         else {
-            cerr << "Error! Division by zero is not allowed." << endl;
+            std::cerr << "Error! Division by zero is not allowed.\n";
             divided_result = std::numeric_limits<double>::quiet_NaN();
             return divided_result;
         }
