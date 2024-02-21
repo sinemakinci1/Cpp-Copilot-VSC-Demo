@@ -23,7 +23,6 @@ int main() {
     assert(Calculator::divide(6, -3) == -2);
     assert(std::isnan(Calculator::divide(6, 0)));
 
-    cout << "All tests passed!" << endl;
+    std::cout << "All tests passed!\n";
 
-    return 0;
 }
