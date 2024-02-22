@@ -1,11 +1,8 @@
-
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.21)
 
 project(my-cmake-project)
 
 add_executable(calculator src/calculator.cpp)
-
-# include(GoogleTest)
 
 enable_testing()
 find_package(GTest CONFIG REQUIRED)
