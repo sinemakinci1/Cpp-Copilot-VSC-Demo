@@ -1,32 +1,18 @@
 #include "Calculator.h"
 
-int main() {
-    Calculator calculator;
-    double num1, num2;
-    char operation;
+double Calculator::add(double a, double b) {
+    return a + b;
+}
 
-    std::cout << "Enter first number: ";
-    std::cin >> num1;
-    std::cout << "Enter operation (+, -, *, /): ";
-    std::cin >> operation;
-    std::cout << "Enter second number: ";
-    std::cin >> num2;
+double Calculator::subtract(double a, double b) {
+    return a - b;
+}
 
-    switch (operation) {
-    case '+':
-        std::cout << "Result: " << calculator.add(num1, num2) << "\n";
-        break;
-    case '-':
-        std::cout << "Result: " << calculator.subtract(num1, num2) << "\n";
-        break;
-    case '*':
-        std::cout << "Result: " << calculator.multiply(num1, num2) << "\n";
-        break;
-    case '/':
-        std::cout << "Result: " << calculator.divide(num1, num2) << "\n";
-        break;
-    default:
-        std::cout << "Invalid operation!" << "\n";
-    }
+double Calculator::multiply(double a, double b) {
+    return a * b;
+}
 
+double Calculator::divide(double a, double b) {
+    if (b == 0) return std::nan("");
+    return a / b;
 }
