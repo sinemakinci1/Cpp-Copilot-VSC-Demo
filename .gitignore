@@ -2,5 +2,7 @@
 build/
 dist/
 bin/
+out/
+.vscode/
 
 tasks.json
