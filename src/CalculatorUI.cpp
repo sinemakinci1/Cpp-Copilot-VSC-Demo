@@ -13,6 +13,18 @@
 CalculatorUI::CalculatorUI(QWidget *parent) : QWidget(parent) {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
+    QHBoxLayout *nameLayout = new QHBoxLayout();
+    QLabel *nameLabel = new QLabel("Name:", this);
+    nameEdit = new QLineEdit(this);
+    nameLayout->addWidget(nameLabel);
+    nameLayout->addWidget(nameEdit);
+
+    QHBoxLayout *companyLayout = new QHBoxLayout();
+    QLabel *companyLabel = new QLabel("Company:", this);
+    companyEdit = new QLineEdit(this);
+    companyLayout->addWidget(companyLabel);
+    companyLayout->addWidget(companyEdit);
+
     QHBoxLayout *num1Layout = new QHBoxLayout();
     QLabel *num1Label = new QLabel("Number 1:", this);
     num1Edit = new QLineEdit(this);
@@ -45,6 +57,8 @@ CalculatorUI::CalculatorUI(QWidget *parent) : QWidget(parent) {
     QPushButton *calculateButton = new QPushButton("Calculate", this);
     connect(calculateButton, &QPushButton::clicked, this, &CalculatorUI::onCalculate);
 
+    mainLayout->addLayout(nameLayout);
+    mainLayout->addLayout(companyLayout);
     mainLayout->addLayout(num1Layout);
     mainLayout->addLayout(num2Layout);
     mainLayout->addLayout(operationLayout);
@@ -57,7 +71,6 @@ void CalculatorUI::onCalculate() {
     double num2 = num2Edit->text().toDouble();
     QString operation = operationCombo->currentText();
     double result = 0;
-    Calculator calculator;
 
     if (operation == "+") {
         result = calculator.add(num1, num2);

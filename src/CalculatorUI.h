@@ -10,7 +10,6 @@
 #include <QLabel>
 #include <QComboBox>
 #include "Calculator.h"
-
 class CalculatorUI : public QWidget {
     Q_OBJECT
 
@@ -21,6 +20,8 @@ private slots:
     void onCalculate();
 
 private:
+    QLineEdit *nameEdit;
+    QLineEdit *companyEdit;
     QLineEdit *num1Edit;
     QLineEdit *num2Edit;
     QLineEdit *resultEdit;
