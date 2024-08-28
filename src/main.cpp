@@ -20,7 +20,7 @@ int main() {
     std::cin >> company;
     user.setCompany(company);
 
-    std::cout << "Welcome, " << user.getName() << " from " << user.getCompany() << "!" << std::endl;
+    std::cout << "Welcome, " << user.getName() << " from " << user.getCompany() << "!\n";
 
     std::cout << "Enter first number: ";
     std::cin >> num1;
