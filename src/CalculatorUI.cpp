@@ -80,7 +80,7 @@ void CalculatorUI::onCalculate() {
         result = calculator.multiply(num1, num2);
     } else if (operation == "/") {
         result = calculator.divide(num1, num2);
-    }
+    }  
 
     resultEdit->setText(QString::number(result));
 }

@@ -1,19 +1,23 @@
 #include "Calculator.h"
-#include <cmath>
+#include <limits> // Include limits for NaN
 
-double Calculator::add(double a, double b) {
-    return a + b;
+double Calculator::add(double num1, double num2) {
+    return num1 + num2;
 }
 
-double Calculator::subtract(double a, double b) {
-    return a - b;
+double Calculator::subtract(double num1, double num2) {
+    return num1 - num2;
 }
 
-double Calculator::multiply(double a, double b) {
-    return a * b;
+double Calculator::multiply(double num1, double num2) {
+    return num1 * num2;
 }
 
-double Calculator::divide(double a, double b) {
-    if (b == 0) return nan("");
-    return a / b;
+double Calculator::divide(double num1, double num2) {
+    if (num2 != 0) {
+        return num1 / num2;
+    } else {
+        std::cerr << "Error! Division by zero is not allowed.\n";
+        return std::numeric_limits<double>::quiet_NaN();
+    }
 }

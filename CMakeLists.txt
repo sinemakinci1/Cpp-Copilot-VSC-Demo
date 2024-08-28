@@ -3,10 +3,15 @@ project(my-cmake-project)
 
 set (CMAKE_AUTOMOC ON)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
+enable_testing()
+find_package(GTest CONFIG REQUIRED)
 
-add_executable(my-cmake-project src/calculator.cpp src/main.cpp src/CalculatorUI.cpp)
-target_link_libraries(my-cmake-project Qt5::Widgets)
+add_executable(calculator src/calculator.cpp src/main.cpp src/CalculatorUI.cpp)
 
-include(CTest)
-add_executable(calculatortests src/test_main.cpp src/calculator.cpp)
-add_test(NAME calculator COMMAND calculatortests)
+target_link_libraries(calculator Qt5::Widgets)
+
+add_executable(calculatortests src/test_calculator.cpp src/calculator.cpp)
+
+target_link_libraries(calculatortests GTest::gtest)
+
+add_test(AllTestsInCalculator calculatortests)

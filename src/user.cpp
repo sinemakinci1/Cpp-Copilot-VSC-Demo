@@ -1,7 +1,7 @@
 #include "user.h"
 
 void User::greet() {
-    std::cout << "Hello, my name is " << name << " and I work at " << company << std::endl;
+    std::cout << "Hello, my name is " << name << " and I work at " << company << "\n";
 }
 
 void User::setName(std::string name) {
