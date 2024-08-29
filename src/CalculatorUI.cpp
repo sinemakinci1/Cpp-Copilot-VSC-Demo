@@ -43,7 +43,7 @@ CalculatorUI::CalculatorUI(QWidget *parent) : QWidget(parent) {
     operationCombo->addItem("+");
     operationCombo->addItem("-");
     operationCombo->addItem("*");
-    operationCombo->addItem("/");
+    operationCombo->addItem("/");    
     operationLayout->addWidget(operationLabel);
     operationLayout->addWidget(operationCombo);
 
@@ -64,21 +64,23 @@ CalculatorUI::CalculatorUI(QWidget *parent) : QWidget(parent) {
     mainLayout->addLayout(operationLayout);
     mainLayout->addLayout(resultLayout);
     mainLayout->addWidget(calculateButton);
+
+
 }
 
 void CalculatorUI::onCalculate() {
     double num1 = num1Edit->text().toDouble();
     double num2 = num2Edit->text().toDouble();
-    QString operation = operationCombo->currentText();
+    QString x = operationCombo->currentText();
     double result = 0;
 
-    if (operation == "+") {
+    if (x == "+") {
         result = calculator.add(num1, num2);
-    } else if (operation == "-") {
+    } else if (x == "-") {
         result = calculator.subtract(num1, num2);
-    } else if (operation == "*") {
+    } else if (x == "*") {
         result = calculator.multiply(num1, num2);
-    } else if (operation == "/") {
+    } else if (x == "/") {
         result = calculator.divide(num1, num2);
     }  
 
