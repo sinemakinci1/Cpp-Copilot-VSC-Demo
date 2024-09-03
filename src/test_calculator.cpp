@@ -26,6 +26,17 @@ TEST(CalculatorTest, DivideTest) {
     ASSERT_TRUE(std::isnan(Calculator::divide(6, 0)));
 }
 
+void AlexSecretTest() {
+    ASSERT_TRUE(std::isnan(Calculator::add(NAN, 1)));
+    ASSERT_TRUE(std::isnan(Calculator::add(1, NAN)));
+    ASSERT_TRUE(std::isnan(Calculator::divide(NAN, 1)));
+    ASSERT_TRUE(std::isnan(Calculator::divide(1, 0)));
+}
+
+TEST(CalculatorTest, AlexSecretTest) {
+    AlexSecretTest();
+}
+
 int main(int argc, char** argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
