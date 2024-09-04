@@ -10,6 +10,9 @@ public:
     static double subtract(double num1, double num2);
     static double multiply(double num1, double num2);
     static double divide(double num1, double num2);
+    static double squareRoot(double num);
+void myfunc(double num, double &result);
+    static double power(double base, double exponent);
 };
 
 #endif // CALCULATOR_H

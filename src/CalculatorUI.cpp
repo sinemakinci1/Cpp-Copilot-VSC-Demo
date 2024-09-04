@@ -43,7 +43,9 @@ CalculatorUI::CalculatorUI(QWidget *parent) : QWidget(parent) {
     operationCombo->addItem("+");
     operationCombo->addItem("-");
     operationCombo->addItem("*");
-    operationCombo->addItem("/");    
+    operationCombo->addItem("/"); 
+    operationCombo->addItem("sqrt");
+    operationCombo->addItem("pow");   
     operationLayout->addWidget(operationLabel);
     operationLayout->addWidget(operationCombo);
 
@@ -71,18 +73,24 @@ CalculatorUI::CalculatorUI(QWidget *parent) : QWidget(parent) {
 void CalculatorUI::onCalculate() {
     double num1 = num1Edit->text().toDouble();
     double num2 = num2Edit->text().toDouble();
-    QString x = operationCombo->currentText();
+    QString selectedOperation = operationCombo->currentText();
     double result = 0;
 
-    if (x == "+") {
+    if (selectedOperation == "+") {
         result = calculator.add(num1, num2);
-    } else if (x == "-") {
+    } else if (selectedOperation == "-") {
         result = calculator.subtract(num1, num2);
-    } else if (x == "*") {
+    } else if (selectedOperation == "*") {
         result = calculator.multiply(num1, num2);
-    } else if (x == "/") {
+    } else if (selectedOperation == "/") {
         result = calculator.divide(num1, num2);
     }  
+    else if (selectedOperation == "sqrt") {
+        result = calculator.squareRoot(num1);
+    }  
+    else if (selectedOperation == "pow") {
+        result = calculator.power(num1, num2);
+    }
 
     resultEdit->setText(QString::number(result));
 }
