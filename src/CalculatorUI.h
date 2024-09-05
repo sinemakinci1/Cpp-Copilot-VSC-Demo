@@ -16,7 +16,6 @@ class CalculatorUI : public QWidget {
 public:
     CalculatorUI(QWidget *parent = nullptr);
 
-private slots:
     void onCalculate();
 
 private:
@@ -24,7 +23,7 @@ private:
     QLineEdit *companyEdit;
     QLineEdit *num1Edit;
     QLineEdit *num2Edit;
-    QLineEdit *resultEdit;
+    QLabel *resultLabel;
     QComboBox *operationCombo;
     Calculator calculator;
 };

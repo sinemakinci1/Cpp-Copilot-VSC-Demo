@@ -88,5 +88,22 @@
             "configuration": "Debug",
             "configurePreset": "x64-debug"
         }
+    ],
+    "workflowPresets": [
+        {
+            "name": "mac-workflow",
+            "description": "",
+            "displayName": "",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "mac"
+                },
+                {
+                    "type": "build",
+                    "name": "mac"
+                }
+            ]
+        }
     ]
 }

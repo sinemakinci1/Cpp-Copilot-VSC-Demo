@@ -11,61 +11,24 @@
 #include "Calculator.h"
 
 CalculatorUI::CalculatorUI(QWidget *parent) : QWidget(parent) {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-
-    QHBoxLayout *nameLayout = new QHBoxLayout();
-    QLabel *nameLabel = new QLabel("Name:", this);
-    nameEdit = new QLineEdit(this);
-    nameLayout->addWidget(nameLabel);
-    nameLayout->addWidget(nameEdit);
-
-    QHBoxLayout *companyLayout = new QHBoxLayout();
-    QLabel *companyLabel = new QLabel("Company:", this);
-    companyEdit = new QLineEdit(this);
-    companyLayout->addWidget(companyLabel);
-    companyLayout->addWidget(companyEdit);
-
-    QHBoxLayout *num1Layout = new QHBoxLayout();
-    QLabel *num1Label = new QLabel("Number 1:", this);
+    // Initialize UI components
     num1Edit = new QLineEdit(this);
-    num1Layout->addWidget(num1Label);
-    num1Layout->addWidget(num1Edit);
-
-    QHBoxLayout *num2Layout = new QHBoxLayout();
-    QLabel *num2Label = new QLabel("Number 2:", this);
     num2Edit = new QLineEdit(this);
-    num2Layout->addWidget(num2Label);
-    num2Layout->addWidget(num2Edit);
-
-    QHBoxLayout *operationLayout = new QHBoxLayout();
-    QLabel *operationLabel = new QLabel("Operation:", this);
+    resultLabel = new QLabel(this);  // Change from QLineEdit to QLabel
     operationCombo = new QComboBox(this);
-    operationCombo->addItem("+");
-    operationCombo->addItem("-");
-    operationCombo->addItem("*");
-    operationCombo->addItem("/");    
-    operationLayout->addWidget(operationLabel);
-    operationLayout->addWidget(operationCombo);
-
-    QHBoxLayout *resultLayout = new QHBoxLayout();
-    QLabel *resultLabel = new QLabel("Result:", this);
-    resultEdit = new QLineEdit(this);
-    resultEdit->setReadOnly(true);
-    resultLayout->addWidget(resultLabel);
-    resultLayout->addWidget(resultEdit);
+    operationCombo->addItems({"+", "-", "*", "/", "sqrt"});
 
     QPushButton *calculateButton = new QPushButton("Calculate", this);
     connect(calculateButton, &QPushButton::clicked, this, &CalculatorUI::onCalculate);
 
-    mainLayout->addLayout(nameLayout);
-    mainLayout->addLayout(companyLayout);
-    mainLayout->addLayout(num1Layout);
-    mainLayout->addLayout(num2Layout);
-    mainLayout->addLayout(operationLayout);
-    mainLayout->addLayout(resultLayout);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(num1Edit);
+    mainLayout->addWidget(num2Edit);
+    mainLayout->addWidget(operationCombo);
     mainLayout->addWidget(calculateButton);
+    mainLayout->addWidget(resultLabel);  // Change from QLineEdit to QLabel
 
-
+    setLayout(mainLayout);
 }
 
 void CalculatorUI::onCalculate() {
@@ -82,7 +45,9 @@ void CalculatorUI::onCalculate() {
         result = calculator.multiply(num1, num2);
     } else if (x == "/") {
         result = calculator.divide(num1, num2);
-    }  
+    } else if (x == "sqrt") {
+        result = calculator.squareRoot(num1);
+    }
 
-    resultEdit->setText(QString::number(result));
+    resultLabel->setText(QString("<h2>Result: %1</h2>").arg(result));  // Use HTML to style the text
 }

@@ -37,6 +37,18 @@ TEST(CalculatorTest, AlexSecretTest) {
     AlexSecretTest();
 }
 
+TEST(CalculatorTest, SquareRootTest) {
+    ASSERT_EQ(Calculator::squareRoot(4), 2);
+    ASSERT_EQ(Calculator::squareRoot(9), 3);
+    ASSERT_EQ(Calculator::squareRoot(16), 4);
+    ASSERT_EQ(Calculator::squareRoot(25), 5);
+    ASSERT_EQ(Calculator::squareRoot(36), 6);
+    ASSERT_EQ(Calculator::squareRoot(49), 7);
+    ASSERT_EQ(Calculator::squareRoot(64), 8);
+    ASSERT_EQ(Calculator::squareRoot(81), 9);
+    ASSERT_EQ(Calculator::squareRoot(100), 10);
+    ASSERT_TRUE(std::isnan(Calculator::squareRoot(-1)));
+}
 int main(int argc, char** argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
