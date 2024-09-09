@@ -44,7 +44,7 @@ CalculatorUI::CalculatorUI(QWidget *parent) : QWidget(parent)
     mainLayout->addLayout(num2Layout);
 
     // List of operations
-    QStringList operations = {"+", "-", "*", "/", "sqrt"};
+    QStringList operations = {"+", "-", "*", "/"};
 
     QButtonGroup *buttonGroup = new QButtonGroup(this);
     buttonGroup->setExclusive(true);
@@ -87,10 +87,6 @@ CalculatorUI::CalculatorUI(QWidget *parent) : QWidget(parent)
 
         buttonGroup->addButton(button);
         buttonLayout->addWidget(button);
-        if (operation == "+")
-        {
-            additionButton = button;
-        }
     }
 
     // Select the addition button by default
@@ -167,10 +163,7 @@ void CalculatorUI::onCalculateClicked()
     {
         result = calculator.divide(num1, num2);
     }
-    else if (operation == "sqrt")
-    {
-        result = calculator.squareRoot(num1);
-    }
+
     resultLabel->setText(QString("<h2 align=\"center\">Result: %1</h2>").arg(result)); // Use HTML to style the text and center it
     adjustSize();
 }
