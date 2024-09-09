@@ -141,25 +141,25 @@ void CalculatorUI::onCalculateClicked()
 {
     // Get the selected operation
     QButtonGroup *buttonGroup = findChild<QButtonGroup *>();
-    QString operation = buttonGroup->checkedButton()->text();
+    QString x = buttonGroup->checkedButton()->text();
 
     double num1 = num1Edit->text().toDouble();
     double num2 = num2Edit->text().toDouble();
     double result = 0;
 
-    if (operation == "+")
+    if (x == "+")
     {
         result = calculator.add(num1, num2);
     }
-    else if (operation == "-")
+    else if (x == "-")
     {
         result = calculator.subtract(num1, num2);
     }
-    else if (operation == "*")
+    else if (x == "*")
     {
         result = calculator.multiply(num1, num2);
     }
-    else if (operation == "/")
+    else if (x == "/")
     {
         result = calculator.divide(num1, num2);
     }
