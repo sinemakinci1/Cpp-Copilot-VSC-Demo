@@ -4,43 +4,43 @@
 
 int main() {
     Calculator calculator;
-    double num1, num2;
-    char operation;
+    double wx_num1, wx_num2;
+    char wx_operation;
 
-    std::cout << "What is your name? ";
-    std::string name;
-    std::cin >> name;
-    std::cout << "Hello, " << name << "!" << "\n";
+    std::cout << "What is your wx_name? ";
+    std::string wx_name;
+    std::cin >> wx_name;
+    std::cout << "Hello, " << wx_name << "!" << "\n";
 
     User user;
-    user.setName(name);
+    user.setName(wx_name);
 
-    std::cout << "Enter your company name: ";
-    std::string company;
-    std::cin >> company;
-    user.setCompany(company);
+    std::cout << "Enter your wx_company wx_name: ";
+    std::string wx_company;
+    std::cin >> wx_company;
+    user.setCompany(wx_company);
 
     std::cout << "Welcome, " << user.getName() << " from " << user.getCompany() << "!\n";
 
     std::cout << "Enter first number: ";
-    std::cin >> num1;
+    std::cin >> wx_num1;
     std::cout << "Enter operation (+, -, *, /): ";
-    std::cin >> operation;
+    std::cin >> wx_operation;
     std::cout << "Enter second number: ";
-    std::cin >> num2;
+    std::cin >> wx_num2;
 
-    switch (operation) {
+    switch (wx_operation) {
     case '+':
-        std::cout << "Result: " << calculator.add(num1, num2) << "\n";
+        std::cout << "Result: " << calculator.add(wx_num1, wx_num2) << "\n";
         break;
     case '-':
-        std::cout << "Result: " << calculator.subtract(num1, num2) << "\n";
+        std::cout << "Result: " << calculator.subtract(wx_num1, wx_num2) << "\n";
         break;
     case '*':
-        std::cout << "Result: " << calculator.multiply(num1, num2) << "\n";
+        std::cout << "Result: " << calculator.multiply(wx_num1, wx_num2) << "\n";
         break;
     case '/':
-        std::cout << "Result: " << calculator.divide(num1, num2) << "\n";
+        std::cout << "Result: " << calculator.divide(wx_num1, wx_num2) << "\n";
         break;
     default:
         std::cout << "Invalid operation!" << "\n";
