@@ -9,23 +9,28 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QComboBox>
+#include <QSignalMapper>
 #include "Calculator.h"
+
 class CalculatorUI : public QWidget {
     Q_OBJECT
 
 public:
     CalculatorUI(QWidget *parent = nullptr);
 
-    void onCalculate();
+    void onNumPadClicked();
+    void onOperationClicked();
+    void setOperation(const QString &operation);
+
+private slots:
+    void onCalculateClicked();
 
 private:
-    QLineEdit *nameEdit;
-    QLineEdit *companyEdit;
     QLineEdit *num1Edit;
     QLineEdit *num2Edit;
     QLabel *resultLabel;
-    QComboBox *operationCombo;
     Calculator calculator;
+    bool operationClicked; 
 };
 
-#endif
+#endif // CALCULATORUI_H
